@@ -1,0 +1,9 @@
+C:\Projetos\Prova\Prova\Prova.Shared\bin\Debug\netcoreapp2.2\Prova.Shared.deps.json
+C:\Projetos\Prova\Prova\Prova.Shared\bin\Debug\netcoreapp2.2\Prova.Shared.dll
+C:\Projetos\Prova\Prova\Prova.Shared\bin\Debug\netcoreapp2.2\Prova.Shared.pdb
+C:\Projetos\Prova\Prova\Prova.Shared\obj\Debug\netcoreapp2.2\Prova.Shared.csproj.CoreCompileInputs.cache
+C:\Projetos\Prova\Prova\Prova.Shared\obj\Debug\netcoreapp2.2\Prova.Shared.AssemblyInfoInputs.cache
+C:\Projetos\Prova\Prova\Prova.Shared\obj\Debug\netcoreapp2.2\Prova.Shared.AssemblyInfo.cs
+C:\Projetos\Prova\Prova\Prova.Shared\obj\Debug\netcoreapp2.2\Prova.Shared.dll
+C:\Projetos\Prova\Prova\Prova.Shared\obj\Debug\netcoreapp2.2\Prova.Shared.pdb
+C:\Projetos\Prova\Prova\Prova.Shared\obj\Debug\netcoreapp2.2\Prova.Shared.csprojAssemblyReference.cache

@@ -1,0 +1,16 @@
+C:\Projetos\Prova\Prova\Prova.Infra\bin\Debug\netcoreapp2.1\Prova.Shared.dll
+C:\Projetos\Prova\Prova\Prova.Infra\obj\Debug\netcoreapp2.1\Prova.Infra.csprojAssemblyReference.cache
+C:\Projetos\Prova\Prova\Prova.Infra\obj\Debug\netcoreapp2.1\Prova.Infra.csproj.CoreCompileInputs.cache
+C:\Projetos\Prova\Prova\Prova.Infra\obj\Debug\netcoreapp2.1\Prova.Infra.AssemblyInfoInputs.cache
+C:\Projetos\Prova\Prova\Prova.Infra\obj\Debug\netcoreapp2.1\Prova.Infra.AssemblyInfo.cs
+C:\Projetos\Prova\Prova\Prova.Infra\bin\Debug\netcoreapp2.1\Prova.Infra.deps.json
+C:\Projetos\Prova\Prova\Prova.Infra\bin\Debug\netcoreapp2.1\Prova.Infra.runtimeconfig.json
+C:\Projetos\Prova\Prova\Prova.Infra\bin\Debug\netcoreapp2.1\Prova.Infra.runtimeconfig.dev.json
+C:\Projetos\Prova\Prova\Prova.Infra\bin\Debug\netcoreapp2.1\Prova.Infra.dll
+C:\Projetos\Prova\Prova\Prova.Infra\bin\Debug\netcoreapp2.1\Prova.Infra.pdb
+C:\Projetos\Prova\Prova\Prova.Infra\bin\Debug\netcoreapp2.1\Prova.Domain.dll
+C:\Projetos\Prova\Prova\Prova.Infra\bin\Debug\netcoreapp2.1\Prova.Domain.pdb
+C:\Projetos\Prova\Prova\Prova.Infra\bin\Debug\netcoreapp2.1\Prova.Shared.pdb
+C:\Projetos\Prova\Prova\Prova.Infra\obj\Debug\netcoreapp2.1\Prova.Infra.csproj.CopyComplete
+C:\Projetos\Prova\Prova\Prova.Infra\obj\Debug\netcoreapp2.1\Prova.Infra.dll
+C:\Projetos\Prova\Prova\Prova.Infra\obj\Debug\netcoreapp2.1\Prova.Infra.pdb
