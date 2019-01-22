@@ -1,0 +1,158 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card mb-3">
+    <div class="card-header">
+        Tarefas
+    </div>
+    <div class="card-body">
+        <div id="success" class="alert alert-success" style="display:none;">
+            <strong>Sucesso!</strong> Item removido.
+        </div>
+        <div id="errors" class="alert alert-danger" style="display:none;">
+            <strong>Erro!</strong>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-bordered" id="tableTasks" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Título</th>
+                        <th>Criado em</th>
+                        <th>Modificado em</th>
+                        <th>Status</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+@section ScriptsReady{
+    <script type="text/javascript">
+        var enumStatus = {
+            New: 1,
+            ToDo: 2,
+            Doing: 3,
+            Stopped: 4,
+            Reopened: 5,
+            Done: 6,
+            Removed: 7
+        };
+
+        getTasks();
+
+        function edit(id) {
+             var url = "@Url.Action("Edit", "Task")";
+            window.location = url + "?Id=" + id;
+        }
+
+        function remove(id) {
+            $.post('/Task/Remove/', {Id: id},
+                function (data) {
+                    if (data.ok) {
+                        $("#success").show();
+                        getTasks();
+                    }
+                    else {
+                        $(data.errors).each(function (erro) {
+                            $("#errors").append(this.message + "<br/>")
+                        });
+                        $("#errors").show();
+                    }
+                });
+        }
+
+        function getStatusName(status) {
+            switch (status) {
+                case enumStatus.New:
+                    return "Novo";
+                    break;
+                case enumStatus.ToDo:
+                    return "Para Fazer";
+                    break;
+                case enumStatus.Doing:
+                    return "Fazendo";
+                    break;
+                case enumStatus.Stopped:
+                    return "Parado";
+                    break;
+                case enumStatus.Reopened:
+                    return "Reaberto";
+                    break;
+                case enumStatus.Done:
+                    return "Pronto";
+                    break;
+                case enumStatus.Removed:
+                    return "Removido";
+                    break;
+            }
+        }
+
+        function dataFormatada(date) {
+            var data = new Date(date),
+                dia = data.getDate().toString(),
+                diaF = (dia.length == 1) ? '0' + dia : dia,
+                mes = (data.getMonth() + 1).toString(),
+                mesF = (mes.length == 1) ? '0' + mes : mes,
+                anoF = data.getFullYear(),
+                hour = data.getHours(),
+                minutes = data.getMinutes(),
+                seconds = data.getSeconds();
+
+            return diaF + "/" + mesF + "/" + anoF + " " + hour.toString().padStart(2, "0") + ":" + minutes + ":" + seconds;
+        }
+
+        function getTasks() {
+            $.get('/Home/GetAll/',
+                function (data) {
+
+                    list = JSON.parse(data.result);
+
+                    $("#tableTasks").dataTable().fnDestroy();
+
+                    $('#tableTasks').DataTable({
+                        data: list,
+                        columns: [
+                            { data: 'Title' },
+                            {
+                                data: 'CreatedDate',
+                                render: function (data) {
+
+                                    return dataFormatada(data);
+                                }
+                            },
+                            {
+                                data: 'ModifiedDate',
+                                render: function (data) {
+                                    return dataFormatada(data);
+                                }
+                            },
+                            {
+                                data: 'Status',
+                                render: function (data) {
+                                    return getStatusName(data);
+                                }
+                            },
+                            {
+                                data: 'Id',
+                                render: function (data) {
+                                    return '<a class="btn btn-primary" title="Editar" onclick="edit(\'' + data + '\')"><i class="fa fa-pencil-alt"></i></a>'
+                                },
+                                orderable: false
+                            },
+                            {
+                                data: 'Id',
+                                render: function (data) {
+                                    return '<a class="btn btn-danger" title="Remover" onclick="remove(\'' + data + '\')"><i class="fa fa-trash"></i></a>'
+                                },
+                                orderable: false
+                            }
+                        ]
+                    });
+                });
+        }
+    </script>
+}

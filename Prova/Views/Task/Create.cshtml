@@ -1,0 +1,66 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card mb-3">
+    <div class="card-header">
+        Nova Tarefa
+    </div>
+    <div class="card-body">
+        <div id="success" class="alert alert-success" style="display:none;">
+            <strong>Sucesso!</strong>
+        </div>
+        <div id="errors" class="alert alert-danger" style="display:none;">
+            <strong>Erro!</strong>
+        </div>
+        <form class="p-t-15" method="post" role="form" id="formCreateTask">
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="title">Título</label>
+                            <input type="text" id="Title" name="Title" class="form-control" maxlength="30" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="description">Descrição</label>
+                            <textarea id="Description" name="Description" class="form-control" maxlength="300" rows="3" required></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Salvar</button>
+        </form>
+    </div>
+</div>
+
+@section ScriptsReady{
+    <script type="text/javascript">
+        var form = $('#formCreateTask');
+
+        form.submit(function (event) {
+            event.preventDefault();
+
+            $("#success").hide();
+            $("#errors").hide();
+
+            $.post('/Task/Add/', form.serialize(),
+                function (data) {
+                    if (data.ok) {
+                        $("#success").show();
+                    }
+                    else {
+                        $(data.errors).each(function (erro) {
+                            $("#errors").append(this.message + "<br/>")
+                        });        
+                        $("#errors").show();
+                    }
+                });
+        });
+    </script>
+}

@@ -1,0 +1,94 @@
+﻿@model Prova.ViewModels.TaskViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card mb-3">
+    <div class="card-header">
+        Editar Tarefa
+    </div>
+    <div class="card-body">
+        <div id="success" class="alert alert-success" style="display:none;">
+            <strong>Sucesso!</strong> Alteração realizada com sucesso.
+        </div>
+        <div id="errors" class="alert alert-danger" style="display:none;">
+            
+        </div>
+        <form class="p-t-15" method="post" role="form" id="formEditTask">
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            @Html.HiddenFor(m => m.Id)
+                            @Html.HiddenFor(m => m.CreatedDate)
+                            <label for="title">Título</label>
+                            @Html.TextBoxFor(m => m.Title, new { @class = "form-control", @maxlength = 30, @required = true })
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="description">Descrição</label>
+                            @Html.TextAreaFor(m => m.Description, new { @class = "form-control", @maxlength = 300, @required = true, @rows = 3 })
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @{
+                var attDropDownList = new Dictionary<string, object>();
+
+                attDropDownList.Add("class", "form-control");
+                attDropDownList.Add("required", "true");
+
+                var list = new List<SelectListItem>();
+                list.Add(new SelectListItem("Novo", "1"));
+                list.Add(new SelectListItem("Para Fazer", "2"));
+                list.Add(new SelectListItem("Fazendo", "3"));
+                list.Add(new SelectListItem("Parado", "4"));
+                list.Add(new SelectListItem("Reaberto", "5"));
+                list.Add(new SelectListItem("Pronto", "6"));
+            }
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="status">Status</label>
+                            @Html.DropDownListFor(x => x.Status, list, attDropDownList)
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Salvar</button>
+        </form>
+    </div>
+</div>
+
+@section ScriptsReady{
+    <script type="text/javascript">
+        var form = $('#formEditTask');
+
+        form.submit(function (event) {
+            event.preventDefault();
+
+            $("#success").hide();
+            $("#errors").hide();
+
+            $.post('/Task/Edit/', form.serialize(),
+                function (data) {
+                    if (data.ok) {
+                        $("#success").show();
+                    }
+                    else {
+                        $(data.errors).each(function (erro) {
+                            $("#errors").empty();
+                            $("#errors").append('<strong>Erro!</strong> ' + this.message + "<br/>")
+                        });
+                        $("#errors").show();
+                    }
+                });
+        });
+    </script>
+}
