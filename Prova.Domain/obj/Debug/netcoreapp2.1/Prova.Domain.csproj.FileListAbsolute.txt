@@ -1,0 +1,8 @@
+C:\Projetos\Prova\Prova\Prova.Domain\bin\Debug\netcoreapp2.1\Prova.Domain.deps.json
+C:\Projetos\Prova\Prova\Prova.Domain\bin\Debug\netcoreapp2.1\Prova.Domain.dll
+C:\Projetos\Prova\Prova\Prova.Domain\bin\Debug\netcoreapp2.1\Prova.Domain.pdb
+C:\Projetos\Prova\Prova\Prova.Domain\obj\Debug\netcoreapp2.1\Prova.Domain.csproj.CoreCompileInputs.cache
+C:\Projetos\Prova\Prova\Prova.Domain\obj\Debug\netcoreapp2.1\Prova.Domain.AssemblyInfoInputs.cache
+C:\Projetos\Prova\Prova\Prova.Domain\obj\Debug\netcoreapp2.1\Prova.Domain.AssemblyInfo.cs
+C:\Projetos\Prova\Prova\Prova.Domain\obj\Debug\netcoreapp2.1\Prova.Domain.dll
+C:\Projetos\Prova\Prova\Prova.Domain\obj\Debug\netcoreapp2.1\Prova.Domain.pdb
